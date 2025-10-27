@@ -1,10 +1,307 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Bienvenido a mi página</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Análisis de Frecuencia del SEIN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 6px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .step:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 45px;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-right: 15px;
+            box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        .step-title {
+            font-size: 1.4em;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .step-description {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+            margin-left: 60px;
+        }
+        
+        .step-description strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .example {
+            background: white;
+            border: 2px dashed #667eea;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            color: #764ba2;
+            font-weight: bold;
+        }
+        
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .note-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .note-text {
+            color: #856404;
+            line-height: 1.6;
+        }
+        
+        .buttons-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .button-card {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .button-card .btn-name {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .button-card .btn-order {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 25px;
+            text-align: center;
+            color: #666;
+            border-top: 3px solid #667eea;
+        }
+        
+        .footer-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .step {
+                padding: 20px;
+            }
+            
+            .step-number {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Hola, soy Francisco</h1>
-  <p>Esta es mi primera página en GitHub Pages 🚀</p>
+    <div class="container">
+        <div class="header">
+            <h1>⚡ Análisis de Frecuencia del SEIN</h1>
+            <p>Guía paso a paso para obtener los datos</p>
+        </div>
+        
+        <div class="content">
+            <div class="note">
+                <div class="note-title">📌 Antes de empezar:</div>
+                <div class="note-text">
+                    Esta guía te ayudará a usar el código de análisis de frecuencia del SEIN en Google Colab. Solo sigue los pasos en orden y todo funcionará correctamente.
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">1</span>
+                    <span>Abrir el código</span>
+                </div>
+                <div class="step-description">
+                    Abre el enlace de Google Colab que te compartieron. Se abrirá una nueva página con el código.
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">2</span>
+                    <span>Limpiar la página</span>
+                </div>
+                <div class="step-description">
+                    En el menú superior, haz clic en <strong>"Entorno de ejecución"</strong> y luego selecciona <strong>"Borrar todas las salidas"</strong> o <strong>"Limpiar salidas"</strong>. Esto evita que la página se llene de resultados anteriores.
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">3</span>
+                    <span>Ejecutar el código</span>
+                </div>
+                <div class="step-description">
+                    Presiona el botón de <strong>"Play" (▶)</strong> que está al lado izquierdo de la celda de código, o presiona <strong>Shift + Enter</strong>. Espera unos segundos hasta que aparezcan los controles de fecha y hora.
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">4</span>
+                    <span>Seleccionar la fecha</span>
+                </div>
+                <div class="step-description">
+                    Verás tres barras deslizantes para seleccionar la fecha:
+                    <ul style="margin-top: 10px; margin-left: 20px; line-height: 1.8;">
+                        <li><strong>Día:</strong> Mueve la barra para seleccionar el día (1-31)</li>
+                        <li><strong>Mes:</strong> Mueve la barra para seleccionar el mes (1-12)</li>
+                        <li><strong>Año:</strong> Mueve la barra para seleccionar el año</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">5</span>
+                    <span>Configurar periodo de análisis</span>
+                </div>
+                <div class="step-description">
+                    Escribe manualmente la <strong>Hora de inicio</strong> y la <strong>Hora de fin</strong> en el formato de 24 horas. Asegúrate de incluir los dos puntos y los segundos.
+                    <div class="example">
+                        Ejemplo:<br>
+                        Hora inicio: 01:23:00<br>
+                        Hora fin: 14:14:00
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">6</span>
+                    <span>Obtener y analizar los datos</span>
+                </div>
+                <div class="step-description">
+                    Haz clic en los siguientes botones <strong>EN ESTE ORDEN</strong>:
+                    <div class="buttons-info">
+                        <div class="button-card">
+                            <div class="btn-name">Obtener datos</div>
+                            <div class="btn-order">1° Click</div>
+                        </div>
+                        <div class="button-card">
+                            <div class="btn-name">Analizar periodo</div>
+                            <div class="btn-order">2° Click</div>
+                        </div>
+                        <div class="button-card">
+                            <div class="btn-name">Exportar Datos</div>
+                            <div class="btn-order">3° Click</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="note" style="background: #d4edda; border-left-color: #28a745;">
+                <div class="note-title" style="color: #155724;">✅ ¡Listo!</div>
+                <div class="note-text" style="color: #155724;">
+                    Los datos se procesarán y podrás ver los resultados del análisis de frecuencia del SEIN. Si necesitas analizar otro periodo, simplemente repite los pasos desde el paso 4.
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-icon">📊</div>
+            <p>Si tienes algún problema, contacta al equipo técnico</p>
+        </div>
+    </div>
 </body>
 </html>
